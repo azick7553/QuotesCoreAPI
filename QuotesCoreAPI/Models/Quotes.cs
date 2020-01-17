@@ -14,5 +14,6 @@ namespace QuotesCoreAPI.Models
         public string Quote { get; set; }
         [Required]
         public string Category { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }

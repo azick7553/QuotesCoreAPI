@@ -17,23 +17,27 @@ namespace QuotesCoreAPI.Controllers
             new Quotes()
             {
                 Id = 1,
-                Author = "Test",
-                Quote = "Hello",
-                Category = "Category2"
+                Author = "Mahatma Gandhi",
+                Quote = "Live as if you were to die tomorrow. Learn as if you were to live forever.",
+                Category = "Philosophy",
+                CreatedDate = DateTime.Now.AddMinutes(-50)
             },
             new Quotes()
             {
                 Id = 2,
-                Author = "Test",
-                Quote = "Hello",
-                Category = "Category1"
+                Author = "Theodore Roosevelt",
+                Quote = "Do what you can, with what you have, where you are.",
+                Category = "Classic",
+                CreatedDate = DateTime.Now.AddHours(-1)
+
             },
             new Quotes()
             {
                 Id = 3,
-                Author = "Test",
-                Quote = "Hello",
-                Category = "Category1"
+                Author = "Charles Kettering",
+                Quote = "Believe and act as if it were impossible to fail.",
+                Category = "Philosophy",
+                CreatedDate = DateTime.Now
             }
         };
 
@@ -71,6 +75,7 @@ namespace QuotesCoreAPI.Controllers
             var incrId = QuotesList.Select(p => p.Id).Max();
             incrId++; //Imitation of auto increment
             quote.Id = incrId;
+            quote.CreatedDate = DateTime.Now;
             QuotesList.Add(quote);
             return Ok(new { massage = "Successfully added!" });
         }
